@@ -1,7 +1,9 @@
 # Group Members
 
 Devin Lewis
+
 Jorge Moran
+
 Jibon Paul
 
 [Trello Link](https://trello.com/b/T4rVi7Zp/youtube-group-project)
