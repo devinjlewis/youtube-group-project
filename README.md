@@ -1,3 +1,11 @@
+# Group Members
+
+Devin Lewis
+Jorge Moran
+Jibon Paul
+
+[Trello Link](https://trello.com/b/T4rVi7Zp/youtube-group-project)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
