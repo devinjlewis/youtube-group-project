@@ -1,0 +1,54 @@
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment-section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.comment-section form {
+  margin-bottom: 20px;
+}
+
+.comment-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comment-section input[type="text"],
+.comment-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.comment-section button {
+  padding: 10px 20px;
+  background-color: rgb(44, 44, 215);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-list {
+  margin-top: 20px;
+}
+
+.comment {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comment strong {
+  font-weight: bold;
+}
+
+.comment p {
+  margin-top: 5px;
+}

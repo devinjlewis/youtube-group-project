@@ -3,6 +3,7 @@ import axios from "axios";
 import YouTube from "react-youtube";
 import VideoItem from "./VideoItem";
 import SearchBox from "./SearchBox";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [searchInput, setSearchInput] = useState("");
@@ -65,11 +66,16 @@ function Home() {
       {searchResults && searchResults.length > 0 && (
         <div className="search-results">
           {searchResults.map((video) => (
-            <VideoItem
+            <Link
               key={video.id.videoId}
-              video={video}
-              onClick={() => handleVideoClick(video.id.videoId)}
-            />
+              to={`/video/${video.id.videoId}`}
+              className="video-link"
+            >
+              <VideoItem
+                video={video}
+                onClick={() => handleVideoClick(video.id.videoId)}
+              />
+            </Link>
           ))}
         </div>
       )}
