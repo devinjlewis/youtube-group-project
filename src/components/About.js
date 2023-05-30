@@ -5,7 +5,7 @@ import jorgePic from "../assets/Jorge.jpg";
 import "./About.css";
 import teamIcon from "../assets/Pursuit+Wordmark+White.png";
 
-function PersonCard({ name, image, email, skillset, bio }) {
+function PersonCard({ name, image, email, skillset, bio, githubLink }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = () => {
@@ -21,7 +21,11 @@ function PersonCard({ name, image, email, skillset, bio }) {
         <div className="flip-card-front">
           <img className="person-image" src={image} alt={name} />
           <h2>{name}</h2>
-          <p className="person-title">Pursuit Fellow 9.5</p>
+          <p className="person-title">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer">
+              Pursuit Fellow 9.5
+            </a>
+          </p>
         </div>
         <div className="flip-card-back">
           <div className="card-content">
@@ -51,6 +55,7 @@ function About() {
           email="jibonpaul@gmail.com"
           skillset={"JS, CSS, JavaScript, React, and others"}
           bio="Jibon is a passionate developer with expertise in frontend technologies."
+          githubLink="https://github.com/JibonP"
         />
         <PersonCard
           name="Devin"
@@ -58,6 +63,7 @@ function About() {
           email="devinlewis@pursuit.org"
           skillset={"JS, CSS, JavaScript, React, and others"}
           bio="Devin is a skilled designer with a keen eye for aesthetics."
+          githubLink="https://github.com/devinjlewis"
         />
         <PersonCard
           name="Jorge"
@@ -65,6 +71,7 @@ function About() {
           email="jorgemoran@pursuit.org"
           skillset={"JS, CSS, JavaScript, React, and others"}
           bio="Jorge is a talented full-stack developer with experience in building scalable websites."
+          githubLink="https://github.com/JorgeM419"
         />
       </div>
       <div className="project-summary">

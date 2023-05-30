@@ -140,3 +140,12 @@
   height: 100vh;
   text-align: center;
 }
+
+.person-title a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.person-title a:hover {
+  transform: scale(1.1);
+}
