@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function SearchBox({ value, onChange, onSearch }) {
   const handleKeyPress = (event) => {
