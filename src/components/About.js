@@ -22,7 +22,7 @@ function PersonCard({ name, image, email, skillset, bio, githubLink }) {
           <img className="person-image" src={image} alt={name} />
           <h2>{name}</h2>
           <p className="person-title">
-            <a href={githubLink} target="_blank" rel="noopener noreferrer">
+            <a href={githubLink} target="link" rel="link">
               Pursuit Fellow 9.5
             </a>
           </p>
