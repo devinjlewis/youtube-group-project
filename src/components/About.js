@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import jibonPic from "../assets/Jivon Paul 2 (1).jpg";
-import devinPic from "../assets/Jivon Paul 2 (1).jpg";
-import jorgePic from "../assets/Jivon Paul 2 (1).jpg";
+import jibonPic from "../assets/Jibon.jpg";
+import devinPic from "../assets/Devin.jpeg";
+import jorgePic from "../assets/Jorge.jpg";
 import "./About.css";
 import teamIcon from "../assets/Pursuit+Wordmark+White.png";
 
@@ -48,23 +48,23 @@ function About() {
         <PersonCard
           name="Jibon"
           image={jibonPic}
-          email="jibon@gmail.com"
+          email="jibonpaul@gmail.com"
           skillset={"JS, CSS, JavaScript, React, and others"}
           bio="Jibon is a passionate developer with expertise in frontend technologies."
         />
         <PersonCard
           name="Devin"
           image={devinPic}
-          email="devin@gmail.com"
+          email="devinlewis@pursuit.org"
           skillset={"JS, CSS, JavaScript, React, and others"}
           bio="Devin is a skilled designer with a keen eye for aesthetics."
         />
         <PersonCard
           name="Jorge"
           image={jorgePic}
-          email="jorge@gmail.com"
+          email="jorgemoran@pursuit.org"
           skillset={"JS, CSS, JavaScript, React, and others"}
-          bio="Jorge is a talented full-stack developer with experience in building scalable web applications."
+          bio="Jorge is a talented full-stack developer with experience in building scalable websites."
         />
       </div>
       <div className="project-summary">
