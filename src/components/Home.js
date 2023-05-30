@@ -77,7 +77,7 @@ function Home() {
                             {console.log(searchResults)}
                             {searchResults.map((video) => (
                                 <div
-                                    className="col-md-6"
+                                    className="col-md-6 d-flex flex-column align-items-center justify-content-center"
                                     key={video.id.videoId}
                                 >
                                     <Link
@@ -93,7 +93,9 @@ function Home() {
                                             }
                                         />
                                     </Link>
-                                    <h2>{video.snippet.title}</h2>
+                                    <h2 className="text-center">
+                                        {video.snippet.title}
+                                    </h2>
                                 </div>
                             ))}
                         </div>
