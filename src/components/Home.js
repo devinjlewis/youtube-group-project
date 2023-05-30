@@ -72,8 +72,9 @@ function Home() {
 
             {searchResults && searchResults.length > 0 && (
                 <>
-                    <div className="search-results container">
+                    <div className="search-results container search mt-3">
                         <div className="row">
+                            {console.log(searchResults)}
                             {searchResults.map((video) => (
                                 <div
                                     className="col-md-6"
@@ -92,6 +93,7 @@ function Home() {
                                             }
                                         />
                                     </Link>
+                                    <h2>{video.snippet.title}</h2>
                                 </div>
                             ))}
                         </div>
