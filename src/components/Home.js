@@ -93,9 +93,9 @@ function Home() {
                                             }
                                         />
                                     </Link>
-                                    <h2 className="text-center">
+                                    <h4 className="text-center">
                                         {video.snippet.title}
-                                    </h2>
+                                    </h4>
                                 </div>
                             ))}
                         </div>
