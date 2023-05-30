@@ -31,7 +31,7 @@ function VideoPage() {
           ...value,
         })
       );
-      console.log(commentsArray); // Add this line to check the comments data
+      console.log(commentsArray);
       setComments(commentsArray);
     });
 
