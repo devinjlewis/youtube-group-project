@@ -83,7 +83,14 @@ function About() {
           explore and learn more about our team members and their contributions
           to this project.
         </p>
-        <img src={teamIcon} alt="Team Icon" className="team-icon" />
+        <a
+          href="https://www.pursuit.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={teamIcon} alt="Team Icon" className="team-icon" />
+          <p>Start your dream today</p>
+        </a>
       </div>
     </div>
   );
