@@ -1,26 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import VideoPage from "./components/VideoPage";
-import Modal from "./components/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 
 function App() {
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleModalClose = () => {
-    setIsErrorModalOpen(false);
-  };
-
-  const handleSearchError = (error) => {
-    setErrorMessage(error);
-    setIsErrorModalOpen(true);
-  };
-
   return (
     <Router>
       <div className="app">
@@ -39,18 +26,12 @@ function App() {
         </header>
         <main className="main-content h-100">
           <Routes>
-            <Route
-              path="/"
-              element={<Home onSearchError={handleSearchError} />}
-            />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/video/:videoId" element={<VideoPage />} />
           </Routes>
         </main>
       </div>
-      {isErrorModalOpen && (
-        <Modal errorMessage={errorMessage} onClose={handleModalClose} />
-      )}
     </Router>
   );
 }

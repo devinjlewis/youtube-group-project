@@ -4,15 +4,12 @@ import YouTube from "react-youtube";
 import VideoItem from "./VideoItem";
 import SearchBox from "./SearchBox";
 import { Link } from "react-router-dom";
-import Modal from "./Modal";
 
-function Home({ onSearchError }) {
+function Home() {
   const [searchInput, setSearchInput] = useState("");
   const [isEmptySearch, setIsEmptySearch] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setIsEmptySearch(searchInput.trim() === "");
@@ -38,7 +35,6 @@ function Home({ onSearchError }) {
       setSearchResults(data.items || []);
     } catch (error) {
       console.error("Error fetching videos:", error);
-      onSearchError("An error occurred during the search."); // Call onSearchError function with error message
       setSearchResults([]);
     }
   };
@@ -51,10 +47,6 @@ function Home({ onSearchError }) {
     if (event.key === "Enter") {
       handleSearch();
     }
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
   };
 
   return (
@@ -79,27 +71,31 @@ function Home({ onSearchError }) {
       )}
 
       {searchResults && searchResults.length > 0 && (
-        <div className="search-results container search mt-3">
-          <div className="row">
-            {searchResults.map((video) => (
-              <div
-                className="col-md-6 d-flex flex-column align-items-center justify-content-center"
-                key={video.id.videoId}
-              >
-                <Link to={`/video/${video.id.videoId}`} className="video-link">
-                  <VideoItem
-                    video={video}
-                    onClick={() => handleVideoClick(video.id.videoId)}
-                  />
-                </Link>
-                <h4 className="text-center">{video.snippet.title}</h4>
-              </div>
-            ))}
+        <>
+          <div className="search-results container search mt-3">
+            <div className="row">
+              {console.log(searchResults)}
+              {searchResults.map((video) => (
+                <div
+                  className="col-md-6 d-flex flex-column align-items-center justify-content-center"
+                  key={video.id.videoId}
+                >
+                  <Link
+                    to={`/video/${video.id.videoId}`}
+                    className="video-link"
+                  >
+                    <VideoItem
+                      video={video}
+                      onClick={() => handleVideoClick(video.id.videoId)}
+                    />
+                  </Link>
+                  <h4 className="text-center">{video.snippet.title}</h4>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
-
-      {showModal && <Modal errorMessage={errorMessage} onClose={closeModal} />}
     </div>
   );
 }
