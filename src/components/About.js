@@ -3,7 +3,7 @@ import jibonPic from "../assets/Jibon.jpg";
 import devinPic from "../assets/Devin.jpeg";
 import jorgePic from "../assets/Jorge.jpg";
 import "./About.css";
-import teamIcon from "../assets/Pursuit+Wordmark+White.png";
+import teamIcon from "../assets/pursuit2.png";
 
 function PersonCard({ name, image, email, skillset, bio, githubLink }) {
   const [isFlipped, setIsFlipped] = useState(false);

@@ -32,6 +32,21 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-section button.edit {
+  background-color: #ffa500;
+}
+
+.comment-section button.delete {
+  background-color: red;
+}
+
+.comment-section button:hover {
+  background-color: #333;
+  transform: scale(1.05);
 }
 
 .comment-list {

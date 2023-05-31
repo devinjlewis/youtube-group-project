@@ -11,6 +11,7 @@ import {
   set,
 } from "firebase/database";
 import firebaseConfig from "../components/firebaseConfig";
+import "./VideoPage.css";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
