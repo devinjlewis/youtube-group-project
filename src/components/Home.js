@@ -10,23 +10,16 @@ function Home() {
     const [isEmptySearch, setIsEmptySearch] = useState(true);
     const [searchResults, setSearchResults] = useState([]);
     const [selectedVideoId, setSelectedVideoId] = useState(null);
-    const [isSearch, setIsSearch] = useState(false);
+    // const [isSearch, setIsSearch] = useState(false);
     useEffect(() => {
         setIsEmptySearch(searchInput.trim() === "");
     }, [searchInput]);
 
-    useEffect(() => {
-        if (isSearch && !searchResults.length) {
-            openModal();
-        }
-
-        // eslint-disable-next-line
-    }, [searchResults]);
     const [showModal, setShowModal] = useState(false);
 
-    const openModal = () => {
-        setShowModal(true);
-    };
+    // const openModal = () => {
+    //     setShowModal(true);
+    // };
 
     const closeModal = () => {
         setShowModal(false);
@@ -37,14 +30,13 @@ function Home() {
         if (searchInput.trim() === "") {
             setIsEmptySearch(true);
             setSearchResults([]);
-            setIsSearch(false);
+            //setIsSearch(false);
         } else {
             setIsEmptySearch(false);
             fetchVideos(searchInput);
-            setIsSearch(true);
+            //setIsSearch(true);
         }
     };
-
     const fetchVideos = async (searchQuery) => {
         const apiKey = process.env.REACT_APP_API_KEY;
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${searchQuery}&key=${apiKey}`;
@@ -52,6 +44,8 @@ function Home() {
         try {
             const response = await axios.get(url);
             const data = response.data;
+
+            console.log(data);
             setSearchResults(data.items || []);
         } catch (error) {
             console.error("Error fetching videos:", error);
