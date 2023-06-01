@@ -75,7 +75,6 @@
   margin-top: 5px;
   font-size: 14px;
   color: #666;
-  /* align-self: flex-end; */
 }
 
 body {
@@ -89,4 +88,19 @@ h4,
 h5,
 h6 {
   font-family: "Roboto", sans-serif;
+}
+
+.title-link {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+}
+
+.nav-link:hover {
+  color: #000;
 }
