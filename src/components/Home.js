@@ -122,47 +122,54 @@ function Home() {
                 )}
             </div>
             {showModal && (
-                <div
-                    className="modal fade show"
-                    id="exampleModal"
-                    tabIndex="-1"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
-                    style={{ display: "block" }}
-                >
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1
-                                    className="modal-title fs-5 text-danger"
-                                    id="exampleModalLabel"
-                                >
-                                    Error
-                                </h1>
-                                <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                    onClick={closeModal}
-                                ></button>
-                            </div>
-                            <div className="modal-body">
-                                Your search came back empty. Please try again.
-                            </div>
-                            <div className="modal-footer">
-                                <button
-                                    type="button"
-                                    className="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                    onClick={closeModal}
-                                >
-                                    Close
-                                </button>
+                <>
+                    <div
+                        className="modal fade show"
+                        id="exampleModal"
+                        tabIndex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                        style={{ display: "block" }}
+                    >
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h1
+                                        className="modal-title fs-5 text-danger"
+                                        id="exampleModalLabel"
+                                    >
+                                        Error
+                                    </h1>
+                                    <button
+                                        type="button"
+                                        className="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                        onClick={closeModal}
+                                    ></button>
+                                </div>
+                                <div className="modal-body">
+                                    Your search came back empty. Please try
+                                    again.
+                                </div>
+                                <div className="modal-footer">
+                                    <button
+                                        type="button"
+                                        className="btn btn-secondary"
+                                        data-bs-dismiss="modal"
+                                        onClick={closeModal}
+                                    >
+                                        Close
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div
+                        className="modal-backdrop show"
+                        style={{ opacity: 0.5 }}
+                    ></div>
+                </>
             )}
         </>
     );
