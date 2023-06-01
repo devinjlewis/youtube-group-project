@@ -150,3 +150,16 @@
 .person-title a:hover {
   transform: scale(1.1);
 }
+
+body {
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
