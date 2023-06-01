@@ -10,16 +10,22 @@ function Home() {
     const [isEmptySearch, setIsEmptySearch] = useState(true);
     const [searchResults, setSearchResults] = useState([]);
     const [selectedVideoId, setSelectedVideoId] = useState(null);
-    // const [isSearch, setIsSearch] = useState(false);
+    const [isSearch, setIsSearch] = useState(false);
     useEffect(() => {
         setIsEmptySearch(searchInput.trim() === "");
     }, [searchInput]);
 
+    useEffect(() => {
+        if (isSearch && searchResults.length === 0) {
+            openModal();
+        }
+        // eslint-disable-next-line
+    }, [searchResults]);
     const [showModal, setShowModal] = useState(false);
 
-    // const openModal = () => {
-    //     setShowModal(true);
-    // };
+    const openModal = () => {
+        setShowModal(true);
+    };
 
     const closeModal = () => {
         setShowModal(false);
@@ -30,11 +36,11 @@ function Home() {
         if (searchInput.trim() === "") {
             setIsEmptySearch(true);
             setSearchResults([]);
-            //setIsSearch(false);
+            setIsSearch(false);
         } else {
             setIsEmptySearch(false);
             fetchVideos(searchInput);
-            //setIsSearch(true);
+            setIsSearch(true);
         }
     };
     const fetchVideos = async (searchQuery) => {
@@ -44,8 +50,6 @@ function Home() {
         try {
             const response = await axios.get(url);
             const data = response.data;
-
-            console.log(data);
             setSearchResults(data.items || []);
         } catch (error) {
             console.error("Error fetching videos:", error);
