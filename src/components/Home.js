@@ -20,6 +20,8 @@ function Home() {
             // Add your code here to show the modal
             openModal();
         }
+
+        // eslint-disable-next-line
     }, [searchResults]);
     const [showModal, setShowModal] = useState(false);
 
