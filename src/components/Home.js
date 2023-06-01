@@ -10,11 +10,27 @@ function Home() {
     const [isEmptySearch, setIsEmptySearch] = useState(true);
     const [searchResults, setSearchResults] = useState([]);
     const [selectedVideoId, setSelectedVideoId] = useState(null);
-
+    const [isSearch, setIsSearch] = useState(false);
     useEffect(() => {
         setIsEmptySearch(searchInput.trim() === "");
     }, [searchInput]);
+    useEffect(() => {
+        // This code will run after the page has loaded
+        if (isSearch && !searchResults.length) {
+            // Add your code here to show the modal
+            openModal();
+        }
+    }, [searchResults]);
+    const [showModal, setShowModal] = useState(false);
 
+    const openModal = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSearchInput("");
+    };
     const handleSearch = () => {
         if (searchInput.trim() === "") {
             setIsEmptySearch(true);
@@ -22,6 +38,7 @@ function Home() {
         } else {
             setIsEmptySearch(false);
             fetchVideos(searchInput);
+            setIsSearch(true);
         }
     };
 
@@ -48,61 +65,104 @@ function Home() {
             handleSearch();
         }
     };
-
     return (
-        <div className="search-container">
-            <SearchBox
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                onSearch={handleSearch}
-                onKeyPress={handleKeyPress}
-            />
+        <>
+            <div className="search-container">
+                <SearchBox
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    onSearch={handleSearch}
+                    onKeyPress={handleKeyPress}
+                />
 
-            {isEmptySearch && (
-                <p className="search-message">
-                    No search yet! Please submit a search above.
-                </p>
-            )}
+                {isEmptySearch && (
+                    <p className="search-message">
+                        No search yet! Please submit a search above.
+                    </p>
+                )}
 
-            {selectedVideoId && (
-                <div className="video-player">
-                    <YouTube videoId={selectedVideoId} />
-                </div>
-            )}
+                {selectedVideoId && (
+                    <div className="video-player">
+                        <YouTube videoId={selectedVideoId} />
+                    </div>
+                )}
 
-            {searchResults && searchResults.length > 0 && (
-                <>
-                    <div className="search-results container search mt-3">
-                        <div className="row">
-                            {console.log(searchResults)}
-                            {searchResults.map((video) => (
-                                <div
-                                    className="col-md-6 d-flex flex-column align-items-center justify-content-center"
-                                    key={video.id.videoId}
-                                >
-                                    <Link
-                                        to={`/video/${video.id.videoId}`}
-                                        className="video-link"
+                {searchResults && searchResults.length > 0 && (
+                    <>
+                        <div className="search-results container search mt-3">
+                            <div className="row">
+                                {searchResults.map((video) => (
+                                    <div
+                                        className="col-md-6 d-flex flex-column align-items-center justify-content-center"
+                                        key={video.id.videoId}
                                     >
-                                        <VideoItem
-                                            video={video}
-                                            onClick={() =>
-                                                handleVideoClick(
-                                                    video.id.videoId
-                                                )
-                                            }
-                                        />
-                                    </Link>
-                                    <h4 className="text-center">
-                                        {video.snippet.title}
-                                    </h4>
-                                </div>
-                            ))}
+                                        <Link
+                                            to={`/video/${video.id.videoId}`}
+                                            className="video-link"
+                                        >
+                                            <VideoItem
+                                                video={video}
+                                                onClick={() =>
+                                                    handleVideoClick(
+                                                        video.id.videoId
+                                                    )
+                                                }
+                                            />
+                                        </Link>
+                                        <h4 className="text-center">
+                                            {video.snippet.title}
+                                        </h4>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
+            {showModal && (
+                <div
+                    className="modal fade show"
+                    id="exampleModal"
+                    tabIndex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                    style={{ display: "block" }}
+                >
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1
+                                    className="modal-title fs-5 text-danger"
+                                    id="exampleModalLabel"
+                                >
+                                    Error
+                                </h1>
+                                <button
+                                    type="button"
+                                    className="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                    onClick={closeModal}
+                                ></button>
+                            </div>
+                            <div className="modal-body">
+                                Your search came back empty. Please try again.
+                            </div>
+                            <div className="modal-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                    onClick={closeModal}
+                                >
+                                    Close
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </>
+                </div>
             )}
-        </div>
+        </>
     );
 }
 
