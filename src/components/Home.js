@@ -14,10 +14,9 @@ function Home() {
     useEffect(() => {
         setIsEmptySearch(searchInput.trim() === "");
     }, [searchInput]);
+
     useEffect(() => {
-        // This code will run after the page has loaded
         if (isSearch && !searchResults.length) {
-            // Add your code here to show the modal
             openModal();
         }
 
@@ -37,6 +36,7 @@ function Home() {
         if (searchInput.trim() === "") {
             setIsEmptySearch(true);
             setSearchResults([]);
+            setIsSearch(false);
         } else {
             setIsEmptySearch(false);
             fetchVideos(searchInput);
