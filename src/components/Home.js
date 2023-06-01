@@ -32,6 +32,7 @@ function Home() {
         setShowModal(false);
         setSearchInput("");
     };
+
     const handleSearch = () => {
         if (searchInput.trim() === "") {
             setIsEmptySearch(true);
